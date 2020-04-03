@@ -105,5 +105,7 @@ module.exports = {
   },
   "markdown": {
     "lineNumbers": true
-  }
+  },
+  "base": '/jade-blog/'
+
 }
