@@ -42,12 +42,12 @@ module.exports = {
           },
           {
             "text": "GitHub",
-            "link": "https://github.com/recoluan",
+            "link": "https://github.com/jiangJade",
             "icon": "reco-github"
           },
           {
             "text": "简书",
-            "link": "https://www.jianshu.com/u/cd674a19515e",
+            "link": "https://www.jianshu.com/u/f2cb422d9345",
             "icon": "reco-jianshu"
           },
           {
