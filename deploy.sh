@@ -9,7 +9,7 @@ set -e
 
 # 进入生成的文件夹
 # cd docs/.vuepress/dist
-cd docs/.vuepress/dist
+cd public
 
 # echo 'blog.myitsky.com' > CNAME
 
