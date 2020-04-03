@@ -99,7 +99,7 @@ module.exports = {
     "sidebar": "auto",
     "lastUpdated": "Last Updated",
     "author": "jiangJade",
-    "authorAvatar": "/avatar.png",
+    "authorAvatar": "/avatar.jpg",
     "record": "xxxx",
     "startYear": "2017"
   },
