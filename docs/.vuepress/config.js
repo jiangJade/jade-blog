@@ -83,7 +83,7 @@ module.exports = {
       {
         "title": "午后南杂",
         "desc": "Enjoy when you can, and endure when you must.",
-        "email": "1156743527@qq.com",
+        "email": "359813946@qq.com",
         "link": "https://www.recoluan.com"
       },
       {
