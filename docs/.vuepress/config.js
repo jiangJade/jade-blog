@@ -1,6 +1,6 @@
 module.exports = {
   "title": "jadeBlog",
-  "description": "",
+  "description": "和你一起学习一起成长的经历",
   "dest": "public",
   "head": [
     [
@@ -81,16 +81,16 @@ module.exports = {
     },
     "friendLink": [
       {
-        "title": "午后南杂",
+        "title": "jadeBlog",
         "desc": "Enjoy when you can, and endure when you must.",
         "email": "359813946@qq.com",
-        "link": "https://www.recoluan.com"
+        "link": "https://www.jianshu.com/u/f2cb422d9345"
       },
       {
-        "title": "vuepress-theme-reco",
+        "title": "jadeBlog",
         "desc": "A simple and beautiful vuepress Blog & Doc theme.",
         "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
-        "link": "https://vuepress-theme-reco.recoluan.com"
+        "link": "https://www.jianshu.com/u/f2cb422d9345"
       }
     ],
     "logo": "/logo.png",
@@ -106,6 +106,16 @@ module.exports = {
   "markdown": {
     "lineNumbers": true
   },
+  // "plugins": [
+  //   [
+  //     "cursor-effects",
+  //     {
+  //       "size": 2,                    // size of the particle, default: 2
+  //       "shape": ['star'| 'circle'],  // shape of the particle, default: 'star'
+  //       "zIndex": 999999999           // z-index property of the canvas, default: 999999999
+  //     }
+  //   ]
+  // ],
   "base": '/jade-blog/'
 
 }

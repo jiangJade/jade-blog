@@ -19,10 +19,10 @@ Fiber 以前的协调
 
 React 会递归比对VirtualDom树, 找出需要变动的节点, 然后同步更新他们。这个过程React称为Reconcilation(协调)
 
-在Reactcilation期间, React会一直占用着浏览器资源, 一则会导致用户出发的事件得不到响应，二则会导致掉帧，用户可能会感激到卡顿
+在Reactcilation期间, React会一直占用着浏览器资源, 一则会导致用户出发的事件得不到响应，二则会导致掉帧，用户可能会感觉到卡顿
 
 我们可以通过某些调度策略合理分配CPU资源，从而提高用户的影响速度
-通过Fiber架构，让自己的Reconcilation过程变成可被中断。使时地让出CPU执行权，除了可以让浏览器及时地响应用户的交互
+通过Fiber架构，让自己的Reconcilation过程变成可被中断。使时地让出CPU执行权，可以让浏览器及时地响应用户的交互
 
 
 1.2 Fiber是一个执行单元
@@ -102,5 +102,5 @@ let VirtualDom = {
     let fiber = new FiberQue();
 
     fiber.questFlash({name: '第一个任务'}, {next: 0});
-
+render()  fiber => c commit 
 ``` -->
