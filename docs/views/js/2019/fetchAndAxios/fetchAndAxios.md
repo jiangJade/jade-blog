@@ -34,13 +34,13 @@ fetch('https://example.com/movies.json')// 第二个参数指定post 和get
 ### 2 axios
 &emsp;&emsp;axios是一个基于Promise用于浏览器和nodejs的HTTP客户端，本质上是对原生XHR的封装，只不过他是Promise的 实现版本，符合最新的es规范，他的特点
 :::tip
-1.从浏览器中创建XMLHttpRequest
-2.支持Promise api
-3.客户端支持CSRF
-4.提供了一些并发请求的接口
-5.从node.js创建http请求
-6.拦截请求和响应
-7.转换请求和响应数据
-8.取消亲求
-9.自动转换JSON数据
+    1.从浏览器中创建XMLHttpRequest
+    2.支持Promise api
+    3.客户端支持CSRF
+    4.提供了一些并发请求的接口
+    5.从node.js创建http请求
+    6.拦截请求和响应
+    7.转换请求和响应数据
+    8.取消请求
+    9.自动转换JSON数据
 :::
