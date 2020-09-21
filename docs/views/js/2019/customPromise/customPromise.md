@@ -75,7 +75,7 @@ categories:
             // 以上述配置开始观察目标节点
             observer.observer(textNode, {
                 // 观察器的配置（需要观察什么变动）{ attributes: true, childList: true, subtree: true }
-                characterData: true
+                characterData: true // 监听文本内容的修改
             });
             counter += 1;
             textNode.data = String(counter);
