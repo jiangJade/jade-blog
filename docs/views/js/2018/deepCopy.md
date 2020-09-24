@@ -56,7 +56,7 @@ var deepCopy = function(obj) {
     for (var key in obj) {
         // hasOwnProperty 确定一个对象是否具有指定的自己的属性
         if (obj.hasOwnProperty(key)) {
-            newObj[key] = (typeof obj[key] !== 'object') ? obj[key]: deepCopy(obj[key])
+            newObj[key] = (typeof obj[key] !== 'object' && obj[key] !== null) ? deepCopy(obj[key]) : obj[key]
         }
     }
     return newObj;
@@ -122,4 +122,51 @@ class DeepClone {
 2.存在递归爆栈的风险
 3.怎么解决？用别人封装好的第三方库。。。
 4.补充一句，如果您想看详细的测试与运行结果
+5.循环引用的问题  var = {}; a.a =a;
+6.递归爆栈的问题
 :::
+
+## 3 广度优先解决爆栈
+
+```
+function cloneDeep(params) {
+    if(!isObject(params)) return data;
+    let root = {};
+    const result = [
+        {parent: root, key: undefined, data: params}
+    ];
+
+    while(result.length) {
+        // 广度优先
+        const targetObj = result.pop();
+        let parent = targetObj.parent;
+        let k = targetObj.key;
+        let obj = targetObj.data;
+
+         // 初始化赋值目标，key为undefined则拷贝到父元素，否则拷贝到子元素
+        let res = parent;
+        if (typeof k !== 'undefined') {
+            res = parent[key] = {};
+        }
+
+        for(let key in obj) {
+            if(obj.hasOwenProperty(k)) {
+                if(isObject(obj)) {
+                    result.push({
+                        parent: res,
+                        key,
+                        data: obj[key]
+                    })
+                }else {
+                    root[key] = data[key]
+                }
+            }
+        }
+    }
+    return root;
+}
+function isObject(obj) {
+    return instanceOf obj === 'object' && obj != null;
+}
+
+```
