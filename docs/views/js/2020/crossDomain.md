@@ -21,7 +21,7 @@ Cross-origin Resource-Sharing翻译过来就是‘跨域资源共享’简称‘
 
 :::tip
 因为 CORS 将请求分为了两类：简单请求和非简单请求。
-在简单请求中是不会发情预检请求的，只有’非简单请求‘才会发起预检请求。
+在简单请求中是不会发起预检请求的，只有’非简单请求‘才会发起预检请求。
 简单请求是指：根据 MDN 的文档定义，请求方法为：GET、POST、HEAD，请求头 Content-Type 为：text/plain、multipart/form-data、application/x-www-form-urlencoded 的就属于 “简单请求” 不会触发 CORS 预检请求。
 
 非简单请求：如果请求头的 Content-Type 为 application/json 就会触发 CORS 预检请求，这里也会称为 “非简单请求”。
