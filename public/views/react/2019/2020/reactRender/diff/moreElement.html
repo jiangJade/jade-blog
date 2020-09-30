@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>diff算法多节点更新diff | jadeBlog</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/jade-blog/favicon.ico">
+    <meta name="description" content="和你一起学习一起成长的经历">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/jade-blog/assets/css/0.styles.e38aed7d.css" as="style"><link rel="preload" href="/jade-blog/assets/js/app.3bb752b3.js" as="script"><link rel="preload" href="/jade-blog/assets/js/3.8e18c45c.js" as="script"><link rel="preload" href="/jade-blog/assets/js/1.36d733a9.js" as="script"><link rel="preload" href="/jade-blog/assets/js/52.415c7efa.js" as="script"><link rel="prefetch" href="/jade-blog/assets/js/10.df0e166a.js"><link rel="prefetch" href="/jade-blog/assets/js/11.320a7102.js"><link rel="prefetch" href="/jade-blog/assets/js/12.50794527.js"><link rel="prefetch" href="/jade-blog/assets/js/13.b00b0357.js"><link rel="prefetch" href="/jade-blog/assets/js/14.f107008b.js"><link rel="prefetch" href="/jade-blog/assets/js/15.52cb1390.js"><link rel="prefetch" href="/jade-blog/assets/js/16.8b80b154.js"><link rel="prefetch" href="/jade-blog/assets/js/17.2da66b3c.js"><link rel="prefetch" href="/jade-blog/assets/js/18.5f24268f.js"><link rel="prefetch" href="/jade-blog/assets/js/19.48b1f53a.js"><link rel="prefetch" href="/jade-blog/assets/js/20.a1f4e924.js"><link rel="prefetch" href="/jade-blog/assets/js/21.2113b3ae.js"><link rel="prefetch" href="/jade-blog/assets/js/22.9f2f29fc.js"><link rel="prefetch" href="/jade-blog/assets/js/23.0761ed8a.js"><link rel="prefetch" href="/jade-blog/assets/js/24.9d497102.js"><link rel="prefetch" href="/jade-blog/assets/js/25.52c4b5ed.js"><link rel="prefetch" href="/jade-blog/assets/js/26.5cdbe5b5.js"><link rel="prefetch" href="/jade-blog/assets/js/27.ab712c50.js"><link rel="prefetch" href="/jade-blog/assets/js/28.bb7bdd6b.js"><link rel="prefetch" href="/jade-blog/assets/js/29.243cef22.js"><link rel="prefetch" href="/jade-blog/assets/js/30.0ea725f3.js"><link rel="prefetch" href="/jade-blog/assets/js/31.3dd5bb0b.js"><link rel="prefetch" href="/jade-blog/assets/js/32.d3365dcf.js"><link rel="prefetch" href="/jade-blog/assets/js/33.6b6bc0db.js"><link rel="prefetch" href="/jade-blog/assets/js/34.a934c18e.js"><link rel="prefetch" href="/jade-blog/assets/js/35.38ddad22.js"><link rel="prefetch" href="/jade-blog/assets/js/36.b7ec31af.js"><link rel="prefetch" href="/jade-blog/assets/js/37.9950d01d.js"><link rel="prefetch" href="/jade-blog/assets/js/38.5f1622f3.js"><link rel="prefetch" href="/jade-blog/assets/js/39.b8e144d6.js"><link rel="prefetch" href="/jade-blog/assets/js/4.119c2f89.js"><link rel="prefetch" href="/jade-blog/assets/js/40.c3fd7725.js"><link rel="prefetch" href="/jade-blog/assets/js/41.fa8ed19f.js"><link rel="prefetch" href="/jade-blog/assets/js/42.f71a24a5.js"><link rel="prefetch" href="/jade-blog/assets/js/43.60a3812f.js"><link rel="prefetch" href="/jade-blog/assets/js/44.41a795ea.js"><link rel="prefetch" href="/jade-blog/assets/js/45.fedcc83b.js"><link rel="prefetch" href="/jade-blog/assets/js/46.b6e969e8.js"><link rel="prefetch" href="/jade-blog/assets/js/47.0a4b317c.js"><link rel="prefetch" href="/jade-blog/assets/js/48.1bd38564.js"><link rel="prefetch" href="/jade-blog/assets/js/49.b0b9a5a1.js"><link rel="prefetch" href="/jade-blog/assets/js/5.f0cebd99.js"><link rel="prefetch" href="/jade-blog/assets/js/50.ec821b3f.js"><link rel="prefetch" href="/jade-blog/assets/js/51.5b9cc977.js"><link rel="prefetch" href="/jade-blog/assets/js/53.247433ec.js"><link rel="prefetch" href="/jade-blog/assets/js/54.f16d2aa5.js"><link rel="prefetch" href="/jade-blog/assets/js/55.5a90b113.js"><link rel="prefetch" href="/jade-blog/assets/js/56.1f07d25b.js"><link rel="prefetch" href="/jade-blog/assets/js/57.b9376328.js"><link rel="prefetch" href="/jade-blog/assets/js/58.4619fbeb.js"><link rel="prefetch" href="/jade-blog/assets/js/59.08c62b73.js"><link rel="prefetch" href="/jade-blog/assets/js/6.240e9e1d.js"><link rel="prefetch" href="/jade-blog/assets/js/7.cba9050a.js"><link rel="prefetch" href="/jade-blog/assets/js/8.fe635303.js"><link rel="prefetch" href="/jade-blog/assets/js/9.1bdfd03f.js">
+    <link rel="stylesheet" href="/jade-blog/assets/css/0.styles.e38aed7d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container" data-v-5bf89314><div data-v-5bf89314><div id="loader-wrapper" class="loading-wrapper" data-v-c01c9394 data-v-5bf89314 data-v-5bf89314><div class="loader-main" data-v-c01c9394><div data-v-c01c9394></div><div data-v-c01c9394></div><div data-v-c01c9394></div><div data-v-c01c9394></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-2fdd79b4 data-v-5bf89314 data-v-5bf89314><h3 class="title" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4>jadeBlog</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><input type="password" value="" data-v-2fdd79b4> <span data-v-2fdd79b4>Konck! Knock!</span> <button data-v-2fdd79b4>OK</button></label> <div class="footer" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><span data-v-2fdd79b4><i class="iconfont reco-theme" data-v-2fdd79b4></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2fdd79b4>vuePress-theme-reco</a></span> <span data-v-2fdd79b4><i class="iconfont reco-copyright" data-v-2fdd79b4></i> <a data-v-2fdd79b4><span data-v-2fdd79b4>jiangJade</span>
+            
+          <span data-v-2fdd79b4>2017 - </span>
+          2020
+        </a></span></div></div> <div class="hide" data-v-5bf89314><header class="navbar" data-v-5bf89314><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/jade-blog/" class="home-link router-link-active"><img src="/jade-blog/logo.png" alt="jadeBlog" class="logo"> <span class="site-name">jadeBlog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/jade-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jade-blog/categories/css/" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/flutter/" class="nav-link"><i class="iconfont undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/js/" class="nav-link"><i class="iconfont undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/typeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  typeScript
+</a></li></ul></div></div><div class="nav-item"><a href="/jade-blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/jade-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~reco_luan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  NPM
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/jiangJade" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/f2cb422d9345" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/luanhewei/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客圆
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://mp.weixin.qq.com/s/mXFqeUTegdvPliXknAAG_A" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  WeChat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-5bf89314></div> <aside class="sidebar" data-v-5bf89314><div class="personal-info-wrapper" data-v-77052908><img src="/jade-blog/avatar.jpg" alt="author-avatar" class="personal-img" data-v-77052908> <h3 class="name" data-v-77052908>
+    jiangJade
+  </h3> <div class="num" data-v-77052908><div data-v-77052908><h3 data-v-77052908>46</h3> <h6 data-v-77052908>文章</h6></div> <div data-v-77052908><h3 data-v-77052908>6</h3> <h6 data-v-77052908>标签</h6></div></div> <hr data-v-77052908></div> <nav class="nav-links"><div class="nav-item"><a href="/jade-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jade-blog/categories/css/" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/flutter/" class="nav-link"><i class="iconfont undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/js/" class="nav-link"><i class="iconfont undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/typeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  typeScript
+</a></li></ul></div></div><div class="nav-item"><a href="/jade-blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/jade-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~reco_luan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  NPM
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/jiangJade" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/f2cb422d9345" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/luanhewei/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客圆
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://mp.weixin.qq.com/s/mXFqeUTegdvPliXknAAG_A" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  WeChat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>diff算法多节点更新diff</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#list函数" class="sidebar-link">List函数</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#jsx对象的children" class="sidebar-link">JSX对象的children</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#多个节点的diff" class="sidebar-link">多个节点的Diff</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#情况1：节点更新" class="sidebar-link">情况1：节点更新</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#情况2：节点新增或减少" class="sidebar-link">情况2：节点新增或减少</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#情况3：节点位置变化" class="sidebar-link">情况3：节点位置变化</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#diff的思路" class="sidebar-link">Diff的思路</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#第一轮遍历" class="sidebar-link">第一轮遍历</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#步骤3跳出的遍历" class="sidebar-link">步骤3跳出的遍历</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#步骤4跳出的遍历" class="sidebar-link">步骤4跳出的遍历</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#第二轮遍历" class="sidebar-link">第二轮遍历</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#newchildren与oldfiber同时遍历完" class="sidebar-link">newChildren与oldFiber同时遍历完</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#newchildren没遍历完，oldfiber遍历完-新节点插入" class="sidebar-link">newChildren没遍历完，oldFiber遍历完(新节点插入)</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#newchildren遍历完，oldfiber没遍历完（有节点被删除）" class="sidebar-link">newChildren遍历完，oldFiber没遍历完（有节点被删除）</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#newchildren与oldfiber都没遍历完" class="sidebar-link">newChildren与oldFiber都没遍历完</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#处理移动的节点" class="sidebar-link">处理移动的节点</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#标记节点是否移动" class="sidebar-link">标记节点是否移动</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#demo1" class="sidebar-link">Demo1</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2019/2020/reactRender/diff/moreElement.html#demo2" class="sidebar-link">Demo2</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-2fdd79b4 data-v-5bf89314><h3 class="title" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4>diff算法多节点更新diff</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><input type="password" value="" data-v-2fdd79b4> <span data-v-2fdd79b4>Konck! Knock!</span> <button data-v-2fdd79b4>OK</button></label> <div class="footer" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><span data-v-2fdd79b4><i class="iconfont reco-theme" data-v-2fdd79b4></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2fdd79b4>vuePress-theme-reco</a></span> <span data-v-2fdd79b4><i class="iconfont reco-copyright" data-v-2fdd79b4></i> <a data-v-2fdd79b4><span data-v-2fdd79b4>jiangJade</span>
+            
+          <span data-v-2fdd79b4>2017 - </span>
+          2020
+        </a></span></div></div> <div data-v-5bf89314><main class="page"><div class="page-title" style="display:none;"><h1>diff算法多节点更新diff</h1> <hr> <div data-v-1d3b109c><i class="iconfont reco-account" data-v-1d3b109c><span data-v-1d3b109c>jiangJade</span></i> <i class="iconfont reco-date" data-v-1d3b109c><span data-v-1d3b109c>2020-04-01</span></i> <!----> <i class="iconfont reco-tag tags" data-v-1d3b109c><span class="tag-item" data-v-1d3b109c>
+      react
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><p>上次我们介绍了单一节点的Diff，现在考虑我们有一个FunctionComponent：</p> <h2 id="list函数"><a href="#list函数" class="header-anchor">#</a> List函数</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>function List () {
+  return (
+    &lt;ul&gt;
+      &lt;li key=&quot;0&quot;&gt;0&lt;/li&gt;
+      &lt;li key=&quot;1&quot;&gt;1&lt;/li&gt;
+      &lt;li key=&quot;2&quot;&gt;2&lt;/li&gt;
+      &lt;li key=&quot;3&quot;&gt;3&lt;/li&gt;
+    &lt;/ul&gt;
+  )
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h2 id="jsx对象的children"><a href="#jsx对象的children" class="header-anchor">#</a> JSX对象的children</h2> <p>他的返回值JSX对象的children属性不是单一节点，而是包含四个对象的数组</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>{
+  $$typeof: Symbol(react.element),
+  key: null,
+  props: {
+    children: [
+      {$$typeof: Symbol(react.element), type: &quot;li&quot;, key: &quot;0&quot;, ref: null, props: {…}, …}
+      {$$typeof: Symbol(react.element), type: &quot;li&quot;, key: &quot;1&quot;, ref: null, props: {…}, …}
+      {$$typeof: Symbol(react.element), type: &quot;li&quot;, key: &quot;2&quot;, ref: null, props: {…}, …}
+      {$$typeof: Symbol(react.element), type: &quot;li&quot;, key: &quot;3&quot;, ref: null, props: {…}, …}
+    ]
+  },
+  ref: null,
+  type: &quot;ul&quot;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><p>这种情况下，reconcileChildFibers的newChild参数类型为Array，在reconcileChildFibers函数内部对应如下情况：</p> <div class="custom-block tip"><p><a href="https://github.com/facebook/react/blob/1fb18e22ae66fdb1dc127347e169e73948778e5a/packages/react-reconciler/src/ReactChildFiber.new.js#L1352" target="_blank" rel="noopener noreferrer">在这里可以查看对应源码<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <div class="language- line-numbers-mode"><pre class="language-text"><code>if (isArray(newChild)) {
+    // 调用 reconcileChildrenArray 处理
+    // ...省略
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="多个节点的diff"><a href="#多个节点的diff" class="header-anchor">#</a> 多个节点的Diff</h2> <p>这一节我们来看看，如何处理同级多个节点的Diff。
+首先归纳下我们需要处理的情况：</p> <p>我们以之前代表更新前的JSX对象，之后代表更新后的JSX对象</p> <h2 id="情况1：节点更新"><a href="#情况1：节点更新" class="header-anchor">#</a> 情况1：节点更新</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 之前
+&lt;ul&gt;
+  &lt;li key=&quot;0&quot; className=&quot;before&quot;&gt;0&lt;li&gt;
+  &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;
+&lt;/ul&gt;
+
+// 之后 情况1 —— 节点属性变化
+&lt;ul&gt;
+  &lt;li key=&quot;0&quot; className=&quot;after&quot;&gt;0&lt;li&gt;
+  &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;
+&lt;/ul&gt;
+
+// 之后 情况2 —— 节点类型更新
+&lt;ul&gt;
+  &lt;div key=&quot;0&quot;&gt;0&lt;li&gt;
+  &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;
+&lt;/ul&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="情况2：节点新增或减少"><a href="#情况2：节点新增或减少" class="header-anchor">#</a> 情况2：节点新增或减少</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 之前
+&lt;ul&gt;
+  &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;
+  &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;
+&lt;/ul&gt;
+
+// 之后 情况1 —— 新增节点
+&lt;ul&gt;
+  &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;
+  &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;
+  &lt;li key=&quot;2&quot;&gt;2&lt;li&gt;
+&lt;/ul&gt;
+
+// 之后 情况2 —— 删除节点
+&lt;ul&gt;
+  &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;
+&lt;/ul&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h2 id="情况3：节点位置变化"><a href="#情况3：节点位置变化" class="header-anchor">#</a> 情况3：节点位置变化</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 之前
+&lt;ul&gt;
+  &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;
+  &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;
+&lt;/ul&gt;
+
+// 之后
+&lt;ul&gt;
+  &lt;li key=&quot;1&quot;&gt;1&lt;li&gt;
+  &lt;li key=&quot;0&quot;&gt;0&lt;li&gt;
+&lt;/ul&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><div class="custom-block tip"><p>同级多个节点的Diff，一定属于以上三种情况中的一种或多种。</p></div> <h2 id="diff的思路"><a href="#diff的思路" class="header-anchor">#</a> Diff的思路</h2> <p>该如何设计算法呢？如果让我设计一个Diff算法，我首先想到的方案是：</p> <div class="custom-block tip"><p>判断当前节点的更新属于哪种情况
+如果是新增，执行新增逻辑
+如果是删除，执行删除逻辑
+如果是更新，执行更新逻辑</p></div> <p>按这个方案，其实有个隐含的前提——不同操作的优先级是相同的</p> <p>但是React团队发现，在日常开发中，相较于新增和删除，更新组件发生的频率更高。所以Diff会优先判断当前节点是否属于更新。</p> <div class="custom-block tip"><div class="language- extra-class"><pre><code>注意
+
+在我们做数组相关的算法题时，经常使用双指针从数组头和尾同时遍历以提高效率，但是这里却不行。
+
+虽然本次更新的JSX对象 newChildren为数组形式，
+但是和newChildren中每个组件进行比较的是current fiber，
+同级的Fiber节点是由sibling指针链接形成的单链表，即不支持双指针遍历。
+
+即 newChildren[0]与fiber比较，newChildren[1]与fiber.sibling比较。
+
+所以无法使用双指针优化。
+</code></pre></div></div> <p>基于以上原因，Diff算法的整体逻辑会经历两轮遍历：</p> <p>第一轮遍历：处理更新的节点。</p> <p>第二轮遍历：处理剩下的不属于更新的节点。</p> <h2 id="第一轮遍历"><a href="#第一轮遍历" class="header-anchor">#</a> 第一轮遍历</h2> <p>第一轮遍历步骤如下：</p> <ol><li><p>let i = 0，遍历newChildren，将newChildren[i]与oldFiber比较，判断DOM节点是否可复用。</p></li> <li><p>如果可复用，i++，继续比较newChildren[i]与oldFiber.sibling，可以复用则继续遍历。</p></li> <li><p>如果不可复用，分两种情况：</p></li></ol> <p>.key不同导致不可复用，立即跳出整个遍历，第一轮遍历结束。</p> <p>.key相同type不同导致不可复用，会将oldFiber标记为DELETION，并继续遍历</p> <ol start="4"><li>如果newChildren遍历完（即i === newChildren.length - 1）或者oldFiber遍历完（即oldFiber.sibling === null），跳出遍历，第一轮遍历结束。</li></ol> <div class="custom-block tip"><p>你可以从这里看到这轮<a href="https://github.com/facebook/react/blob/1fb18e22ae66fdb1dc127347e169e73948778e5a/packages/react-reconciler/src/ReactChildFiber.new.js#L818" target="_blank" rel="noopener noreferrer">遍历的源码<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <p>当遍历结束后，会有两种结果：</p> <h2 id="步骤3跳出的遍历"><a href="#步骤3跳出的遍历" class="header-anchor">#</a> 步骤3跳出的遍历</h2> <p>此时newChildren没有遍历完，oldFiber也没有遍历完。</p> <p>举个例子，考虑如下代码：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 之前
+&lt;li key=&quot;0&quot;&gt;0&lt;/li&gt;
+&lt;li key=&quot;1&quot;&gt;1&lt;/li&gt;
+&lt;li key=&quot;2&quot;&gt;2&lt;/li&gt;
+            
+// 之后
+&lt;li key=&quot;0&quot;&gt;0&lt;/li&gt;
+&lt;li key=&quot;2&quot;&gt;1&lt;/li&gt;
+&lt;li key=&quot;1&quot;&gt;2&lt;/li&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>第一个节点可复用，遍历到key === 2的节点发现key改变，不可复用，跳出遍历，等待第二轮遍历处理。</p> <p>此时oldFiber剩下key === 1、key === 2未遍历，newChildren剩下key === 2、key === 1未遍历。</p> <h2 id="步骤4跳出的遍历"><a href="#步骤4跳出的遍历" class="header-anchor">#</a> 步骤4跳出的遍历</h2> <p>可能newChildren遍历完，或oldFiber遍历完，或他们同时遍历完。</p> <p>举个例子，考虑如下代码：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>// 之前
+&lt;li key=&quot;0&quot; className=&quot;a&quot;&gt;0&lt;/li&gt;
+&lt;li key=&quot;1&quot; className=&quot;b&quot;&gt;1&lt;/li&gt;
+            
+// 之后 情况1 —— newChildren与oldFiber都遍历完
+&lt;li key=&quot;0&quot; className=&quot;aa&quot;&gt;0&lt;/li&gt;
+&lt;li key=&quot;1&quot; className=&quot;bb&quot;&gt;1&lt;/li&gt;
+            
+// 之后 情况2 —— newChildren没遍历完，oldFiber遍历完
+// newChildren剩下 key===&quot;2&quot; 未遍历
+&lt;li key=&quot;0&quot; className=&quot;aa&quot;&gt;0&lt;/li&gt;
+&lt;li key=&quot;1&quot; className=&quot;bb&quot;&gt;1&lt;/li&gt;
+&lt;li key=&quot;2&quot; className=&quot;cc&quot;&gt;2&lt;/li&gt;
+            
+// 之后 情况3 —— newChildren遍历完，oldFiber没遍历完
+// oldFiber剩下 key===&quot;1&quot; 未遍历
+&lt;li key=&quot;0&quot; className=&quot;aa&quot;&gt;0&lt;/li&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>带着第一轮遍历的结果，我们开始第二轮遍历。</p> <h2 id="第二轮遍历"><a href="#第二轮遍历" class="header-anchor">#</a> 第二轮遍历</h2> <p>对于第一轮遍历的结果，我们分别讨论：</p> <h2 id="newchildren与oldfiber同时遍历完"><a href="#newchildren与oldfiber同时遍历完" class="header-anchor">#</a> newChildren与oldFiber同时遍历完</h2> <p>那就是最理想的情况：只需在第一轮遍历进行组件<a href="https://github.com/facebook/react/blob/1fb18e22ae66fdb1dc127347e169e73948778e5a/packages/react-reconciler/src/ReactChildFiber.new.js#L825" target="_blank" rel="noopener noreferrer">更新<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>。此时Diff结束。</p> <h2 id="newchildren没遍历完，oldfiber遍历完-新节点插入"><a href="#newchildren没遍历完，oldfiber遍历完-新节点插入" class="header-anchor">#</a> newChildren没遍历完，oldFiber遍历完(新节点插入)</h2> <p>已有的DOM节点都复用了，这时还有新加入的节点，意味着本次更新有新节点插入，我们只需要遍历剩下的newChildren为生成的workInProgress fiber依次标记Placement。</p> <div class="custom-block tip"><p><a href="https://github.com/facebook/react/blob/1fb18e22ae66fdb1dc127347e169e73948778e5a/packages/react-reconciler/src/ReactChildFiber.new.js#L869" target="_blank" rel="noopener noreferrer">插入节点的diff<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>源码</p></div> <h2 id="newchildren遍历完，oldfiber没遍历完（有节点被删除）"><a href="#newchildren遍历完，oldfiber没遍历完（有节点被删除）" class="header-anchor">#</a> newChildren遍历完，oldFiber没遍历完（有节点被删除）</h2> <p>意味着本次更新比之前的节点数量少，有节点被删除了。所以需要遍历剩下的oldFiber，依次标记Deletion。</p> <div class="custom-block tip"><p>你可以在这里看到<a href="https://github.com/facebook/react/blob/1fb18e22ae66fdb1dc127347e169e73948778e5a/packages/react-reconciler/src/ReactChildFiber.new.js#L863" target="_blank" rel="noopener noreferrer">删除节点操作源码<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <h2 id="newchildren与oldfiber都没遍历完"><a href="#newchildren与oldfiber都没遍历完" class="header-anchor">#</a> newChildren与oldFiber都没遍历完</h2> <p>这意味着有节点在这次更新中改变了位置。</p> <p>这是Diff算法最精髓也是最难懂的部分。我们接下来会重点讲解。</p> <div class="custom-block tip"><p>在这里可以看到<a href="https://github.com/facebook/react/blob/1fb18e22ae66fdb1dc127347e169e73948778e5a/packages/react-reconciler/src/ReactChildFiber.new.js#L893" target="_blank" rel="noopener noreferrer">对应源码<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p></div> <h2 id="处理移动的节点"><a href="#处理移动的节点" class="header-anchor">#</a> 处理移动的节点</h2> <p>由于有节点改变了位置，所以不能再用位置索引i对比前后的节点，那么如何才能将同一个节点在两次更新中对应上呢？</p> <p>我们需要使用key。</p> <p>为了快速的找到key对应的oldFiber，我们将所有还未处理的oldFiber存入以key为key，oldFiber为value的Map中。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    const existingChildren = mapRemainingChildren(returnFiber, oldFiber);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><div class="custom-block tip"><p>你可以在<a href="https://github.com/facebook/react/blob/1fb18e22ae66fdb1dc127347e169e73948778e5a/packages/react-reconciler/src/ReactChildFiber.new.js#L890" target="_blank" rel="noopener noreferrer">这里<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>看到这段源码逻辑</p></div> <p>接下来遍历剩余的newChildren，通过newChildren[i].key就能在existingChildren中找到key相同的oldFiber。</p> <h2 id="标记节点是否移动"><a href="#标记节点是否移动" class="header-anchor">#</a> 标记节点是否移动</h2> <p>既然我们的目标是寻找移动的节点，那么我们需要明确：节点是否移动是以什么为参照物？</p> <p>我们的参照物是：最后一个可复用的节点在oldFiber中的位置索引（用变量lastPlacedIndex表示）。</p> <p>由于本次更新中节点是按newChildren的顺序排列。在遍历newChildren过程中，每个遍历到的可复用节点一定是当前遍历到的所有可复用节点中最靠右的那个，即一定在lastPlacedIndex对应的可复用的节点在本次更新中位置的后面。</p> <p>那么我们只需要比较遍历到的可复用节点在上次更新时是否也在lastPlacedIndex对应的oldFiber后面，就能知道两次更新中这两个节点的相对位置改变没有。</p> <p>我们用变量oldIndex表示遍历到的可复用节点在oldFiber中的位置索引。如果oldIndex &lt; lastPlacedIndex，代表本次更新该节点需要向右移动。</p> <p>lastPlacedIndex初始为0，每遍历一个可复用的节点，如果oldFiber &gt;= lastPlacedIndex，则lastPlacedIndex = oldFiber。</p> <p>单纯文字表达比较晦涩，这里我们提供两个Demo，你可以对照着理解。</p> <h2 id="demo1"><a href="#demo1" class="header-anchor">#</a> Demo1</h2> <p>在Demo中我们简化下书写，每个字母代表一个节点，字母的值代表节点的key</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    // 之前
+    abcd
+
+    // 之后
+    acdb
+
+    ===第一轮遍历开始===
+    a（之后）vs a（之前）  
+    key不变，可复用
+    此时 a 对应的oldFiber（之前的a）在之前的数组（abcd）中索引为0
+    所以 lastPlacedIndex = 0;
+
+    继续第一轮遍历...
+
+    c（之后）vs b（之前）  
+    key改变，不能复用，跳出第一轮遍历
+    此时 lastPlacedIndex === 0;
+    ===第一轮遍历结束===
+
+    ===第二轮遍历开始===
+    newChildren === cdb，没用完，不需要执行删除旧节点
+    oldFiber === bcd，没用完，不需要执行插入新节点
+
+    将剩余oldFiber（bcd）保存为map
+
+    // 当前oldFiber：bcd
+    // 当前newChildren：cdb
+
+    继续遍历剩余newChildren
+
+    key === c 在 oldFiber中存在
+    const oldIndex = c（之前）.index;
+    此时 oldIndex === 2;  // 之前节点为 abcd，所以c.index === 2
+    比较 oldIndex 与 lastPlacedIndex;
+
+    如果 oldIndex &gt;= lastPlacedIndex 代表该可复用节点不需要移动
+    并将 lastPlacedIndex = oldIndex;
+    如果 oldIndex &lt; lastplacedIndex 该可复用节点之前插入的位置索引小于这次更新需要插入的位置索引，代表该节点需要向右移动
+
+    在例子中，oldIndex 2 &gt; lastPlacedIndex 0，
+    则 lastPlacedIndex = 2;
+    c节点位置不变
+
+    继续遍历剩余newChildren
+
+    // 当前oldFiber：bd
+    // 当前newChildren：db
+
+    key === d 在 oldFiber中存在
+    const oldIndex = d（之前）.index;
+    oldIndex 3 &gt; lastPlacedIndex 2 // 之前节点为 abcd，所以d.index === 3
+    则 lastPlacedIndex = 3;
+    d节点位置不变
+
+    继续遍历剩余newChildren
+
+    // 当前oldFiber：b
+    // 当前newChildren：b
+
+    key === b 在 oldFiber中存在
+    const oldIndex = b（之前）.index;
+    oldIndex 1 &lt; lastPlacedIndex 3 // 之前节点为 abcd，所以b.index === 1
+    则 b节点需要向右移动
+    ===第二轮遍历结束===
+
+    最终acd 3个节点都没有移动，b节点被标记为移动
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br></div></div><h2 id="demo2"><a href="#demo2" class="header-anchor">#</a> Demo2</h2> <div class="language- line-numbers-mode"><pre class="language-text"><code>    // 之前
+    abcd
+
+    // 之后
+    dabc
+
+    ===第一轮遍历开始===
+    d（之后）vs a（之前）  
+    key改变，不能复用，跳出遍历
+    ===第一轮遍历结束===
+
+    ===第二轮遍历开始===
+    newChildren === dabc，没用完，不需要执行删除旧节点
+    oldFiber === abcd，没用完，不需要执行插入新节点
+
+    将剩余oldFiber（abcd）保存为map
+
+    继续遍历剩余newChildren
+
+    // 当前oldFiber：abcd
+    // 当前newChildren dabc
+
+    key === d 在 oldFiber中存在
+    const oldIndex = d（之前）.index;
+    此时 oldIndex === 3; // 之前节点为 abcd，所以d.index === 3
+    比较 oldIndex 与 lastPlacedIndex;
+    oldIndex 3 &gt; lastPlacedIndex 0
+    则 lastPlacedIndex = 3;
+    d节点位置不变
+
+    继续遍历剩余newChildren
+
+    // 当前oldFiber：abc
+    // 当前newChildren abc
+
+    key === a 在 oldFiber中存在
+    const oldIndex = a（之前）.index; // 之前节点为 abcd，所以a.index === 0
+    此时 oldIndex === 0;
+    比较 oldIndex 与 lastPlacedIndex;
+    oldIndex 0 &lt; lastPlacedIndex 3
+    则 a节点需要向右移动
+
+    继续遍历剩余newChildren
+
+    // 当前oldFiber：bc
+    // 当前newChildren bc
+
+    key === b 在 oldFiber中存在
+    const oldIndex = b（之前）.index; // 之前节点为 abcd，所以b.index === 1
+    此时 oldIndex === 1;
+    比较 oldIndex 与 lastPlacedIndex;
+    oldIndex 1 &lt; lastPlacedIndex 3
+    则 b节点需要向右移动
+
+    继续遍历剩余newChildren
+
+    // 当前oldFiber：c
+    // 当前newChildren c
+
+    key === c 在 oldFiber中存在
+    const oldIndex = c（之前）.index; // 之前节点为 abcd，所以c.index === 2
+    此时 oldIndex === 2;
+    比较 oldIndex 与 lastPlacedIndex;
+    oldIndex 2 &lt; lastPlacedIndex 3
+    则 c节点需要向右移动
+
+    ===第二轮遍历结束===
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br></div></div><p>可以看到，我们以为从 abcd 变为 dabc，只需要将d移动到前面。</p> <p>但实际上React保持d不变，将abc分别移动到了d的后面。</p> <p>从这点可以看出，考虑性能，我们要尽量减少将节点从后面移动到前面的操作。</p></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----></main> <!----> <div style="display:none;" data-v-5bf89314 data-v-5bf89314><div class="comments-wrapper" data-v-5bf89314><!----></div></div></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-566b5166 data-v-566b5166><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-566b5166><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-566b5166></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-566b5166></path></svg></div></div></div>
+    <script src="/jade-blog/assets/js/app.3bb752b3.js" defer></script><script src="/jade-blog/assets/js/3.8e18c45c.js" defer></script><script src="/jade-blog/assets/js/1.36d733a9.js" defer></script><script src="/jade-blog/assets/js/52.415c7efa.js" defer></script>
+  </body>
+</html>
