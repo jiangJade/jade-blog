@@ -7,7 +7,8 @@ categories:
  - js
 ---
 
-::: 一个二维码下载引发的血案
+:::tip
+一个二维码下载引发的血案
 :::
 
 1 使用html2canvas
