@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>优化react代码的6中建议 | jadeBlog</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/jade-blog/favicon.ico">
+    <meta name="description" content="和你一起学习一起成长的经历">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/jade-blog/assets/css/0.styles.e38aed7d.css" as="style"><link rel="preload" href="/jade-blog/assets/js/app.e9d780cf.js" as="script"><link rel="preload" href="/jade-blog/assets/js/3.8e18c45c.js" as="script"><link rel="preload" href="/jade-blog/assets/js/1.36d733a9.js" as="script"><link rel="preload" href="/jade-blog/assets/js/67.f982cb4f.js" as="script"><link rel="prefetch" href="/jade-blog/assets/js/10.df0e166a.js"><link rel="prefetch" href="/jade-blog/assets/js/11.2ab0ec49.js"><link rel="prefetch" href="/jade-blog/assets/js/12.ea72aa89.js"><link rel="prefetch" href="/jade-blog/assets/js/13.c8378fe0.js"><link rel="prefetch" href="/jade-blog/assets/js/14.6385aa41.js"><link rel="prefetch" href="/jade-blog/assets/js/15.324e4df5.js"><link rel="prefetch" href="/jade-blog/assets/js/16.cad1e038.js"><link rel="prefetch" href="/jade-blog/assets/js/17.1520470b.js"><link rel="prefetch" href="/jade-blog/assets/js/18.181f1207.js"><link rel="prefetch" href="/jade-blog/assets/js/19.81a42d88.js"><link rel="prefetch" href="/jade-blog/assets/js/20.f49dc8b8.js"><link rel="prefetch" href="/jade-blog/assets/js/21.435eeeac.js"><link rel="prefetch" href="/jade-blog/assets/js/22.61b7e9ef.js"><link rel="prefetch" href="/jade-blog/assets/js/23.0761ed8a.js"><link rel="prefetch" href="/jade-blog/assets/js/24.0ac778d0.js"><link rel="prefetch" href="/jade-blog/assets/js/25.10dc99f4.js"><link rel="prefetch" href="/jade-blog/assets/js/26.5cdbe5b5.js"><link rel="prefetch" href="/jade-blog/assets/js/27.ab712c50.js"><link rel="prefetch" href="/jade-blog/assets/js/28.bb7bdd6b.js"><link rel="prefetch" href="/jade-blog/assets/js/29.bae29f22.js"><link rel="prefetch" href="/jade-blog/assets/js/30.26ab769b.js"><link rel="prefetch" href="/jade-blog/assets/js/31.5f80d9af.js"><link rel="prefetch" href="/jade-blog/assets/js/32.463aaeda.js"><link rel="prefetch" href="/jade-blog/assets/js/33.d482bf9e.js"><link rel="prefetch" href="/jade-blog/assets/js/34.295325f5.js"><link rel="prefetch" href="/jade-blog/assets/js/35.a13bb579.js"><link rel="prefetch" href="/jade-blog/assets/js/36.99a0b11d.js"><link rel="prefetch" href="/jade-blog/assets/js/37.bd66a6a1.js"><link rel="prefetch" href="/jade-blog/assets/js/38.31924615.js"><link rel="prefetch" href="/jade-blog/assets/js/39.87edaa75.js"><link rel="prefetch" href="/jade-blog/assets/js/4.119c2f89.js"><link rel="prefetch" href="/jade-blog/assets/js/40.865c13ed.js"><link rel="prefetch" href="/jade-blog/assets/js/41.124e831a.js"><link rel="prefetch" href="/jade-blog/assets/js/42.9c895c13.js"><link rel="prefetch" href="/jade-blog/assets/js/43.0b9ef15a.js"><link rel="prefetch" href="/jade-blog/assets/js/44.179bd1ed.js"><link rel="prefetch" href="/jade-blog/assets/js/45.60ee4882.js"><link rel="prefetch" href="/jade-blog/assets/js/46.c9304ce9.js"><link rel="prefetch" href="/jade-blog/assets/js/47.473e9761.js"><link rel="prefetch" href="/jade-blog/assets/js/48.af1ed700.js"><link rel="prefetch" href="/jade-blog/assets/js/49.f2686cf9.js"><link rel="prefetch" href="/jade-blog/assets/js/5.f0cebd99.js"><link rel="prefetch" href="/jade-blog/assets/js/50.07277428.js"><link rel="prefetch" href="/jade-blog/assets/js/51.337f2485.js"><link rel="prefetch" href="/jade-blog/assets/js/52.ac7232ed.js"><link rel="prefetch" href="/jade-blog/assets/js/53.d3f71124.js"><link rel="prefetch" href="/jade-blog/assets/js/54.3cd012c3.js"><link rel="prefetch" href="/jade-blog/assets/js/55.679ab18b.js"><link rel="prefetch" href="/jade-blog/assets/js/56.a845b7f1.js"><link rel="prefetch" href="/jade-blog/assets/js/57.fab72dcc.js"><link rel="prefetch" href="/jade-blog/assets/js/58.8f9c5ad4.js"><link rel="prefetch" href="/jade-blog/assets/js/59.55b68b7b.js"><link rel="prefetch" href="/jade-blog/assets/js/6.240e9e1d.js"><link rel="prefetch" href="/jade-blog/assets/js/60.80eea38b.js"><link rel="prefetch" href="/jade-blog/assets/js/61.54a140e6.js"><link rel="prefetch" href="/jade-blog/assets/js/62.835b6747.js"><link rel="prefetch" href="/jade-blog/assets/js/63.26187467.js"><link rel="prefetch" href="/jade-blog/assets/js/64.2cd5c411.js"><link rel="prefetch" href="/jade-blog/assets/js/65.62da241c.js"><link rel="prefetch" href="/jade-blog/assets/js/66.e9ae6baa.js"><link rel="prefetch" href="/jade-blog/assets/js/68.26de0115.js"><link rel="prefetch" href="/jade-blog/assets/js/69.6177462a.js"><link rel="prefetch" href="/jade-blog/assets/js/7.ccde9f62.js"><link rel="prefetch" href="/jade-blog/assets/js/70.32233e65.js"><link rel="prefetch" href="/jade-blog/assets/js/71.65a41aa4.js"><link rel="prefetch" href="/jade-blog/assets/js/72.9f4f1df4.js"><link rel="prefetch" href="/jade-blog/assets/js/8.f0650b3a.js"><link rel="prefetch" href="/jade-blog/assets/js/9.1bdfd03f.js">
+    <link rel="stylesheet" href="/jade-blog/assets/css/0.styles.e38aed7d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container" data-v-5bf89314><div data-v-5bf89314><div id="loader-wrapper" class="loading-wrapper" data-v-c01c9394 data-v-5bf89314 data-v-5bf89314><div class="loader-main" data-v-c01c9394><div data-v-c01c9394></div><div data-v-c01c9394></div><div data-v-c01c9394></div><div data-v-c01c9394></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-2fdd79b4 data-v-5bf89314 data-v-5bf89314><h3 class="title" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4>jadeBlog</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><input type="password" value="" data-v-2fdd79b4> <span data-v-2fdd79b4>Konck! Knock!</span> <button data-v-2fdd79b4>OK</button></label> <div class="footer" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><span data-v-2fdd79b4><i class="iconfont reco-theme" data-v-2fdd79b4></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2fdd79b4>vuePress-theme-reco</a></span> <span data-v-2fdd79b4><i class="iconfont reco-copyright" data-v-2fdd79b4></i> <a data-v-2fdd79b4><span data-v-2fdd79b4>jiangJade</span>
+            
+          <span data-v-2fdd79b4>2017 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-5bf89314><header class="navbar" data-v-5bf89314><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/jade-blog/" class="home-link router-link-active"><img src="/jade-blog/logo.png" alt="jadeBlog" class="logo"> <span class="site-name">jadeBlog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/jade-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jade-blog/categories/css/" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/flutter/" class="nav-link"><i class="iconfont undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/js/" class="nav-link"><i class="iconfont undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/typeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  typeScript
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/jade-blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/jade-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~reco_luan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  NPM
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/jiangJade" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/f2cb422d9345" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/luanhewei/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客圆
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://mp.weixin.qq.com/s/mXFqeUTegdvPliXknAAG_A" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  WeChat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-5bf89314></div> <aside class="sidebar" data-v-5bf89314><div class="personal-info-wrapper" data-v-77052908><img src="/jade-blog/avatar.jpg" alt="author-avatar" class="personal-img" data-v-77052908> <h3 class="name" data-v-77052908>
+    jiangJade
+  </h3> <div class="num" data-v-77052908><div data-v-77052908><h3 data-v-77052908>59</h3> <h6 data-v-77052908>文章</h6></div> <div data-v-77052908><h3 data-v-77052908>7</h3> <h6 data-v-77052908>标签</h6></div></div> <hr data-v-77052908></div> <nav class="nav-links"><div class="nav-item"><a href="/jade-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jade-blog/categories/css/" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/flutter/" class="nav-link"><i class="iconfont undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/js/" class="nav-link"><i class="iconfont undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/typeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  typeScript
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/jade-blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/jade-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~reco_luan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  NPM
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/jiangJade" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/f2cb422d9345" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/luanhewei/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客圆
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://mp.weixin.qq.com/s/mXFqeUTegdvPliXknAAG_A" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  WeChat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>优化react代码的6中建议</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/jade-blog/views/react/2020/optimizeCode/optimizeCode.html#_1-为什么要提到优化react代码" class="sidebar-link">1 为什么要提到优化react代码?</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/jade-blog/views/react/2020/optimizeCode/optimizeCode.html#_2-优化的内容" class="sidebar-link">2 优化的内容</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/jade-blog/views/react/2020/optimizeCode/optimizeCode.html#该组件是否可被合成？" class="sidebar-link">该组件是否可被合成？</a></li><li class="sidebar-sub-header"><a href="/jade-blog/views/react/2020/optimizeCode/optimizeCode.html#是否传递了很多有关配置的-props" class="sidebar-link">是否传递了很多有关配置的 props</a></li></ul></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-2fdd79b4 data-v-5bf89314><h3 class="title" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4>优化react代码的6中建议</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><input type="password" value="" data-v-2fdd79b4> <span data-v-2fdd79b4>Konck! Knock!</span> <button data-v-2fdd79b4>OK</button></label> <div class="footer" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><span data-v-2fdd79b4><i class="iconfont reco-theme" data-v-2fdd79b4></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2fdd79b4>vuePress-theme-reco</a></span> <span data-v-2fdd79b4><i class="iconfont reco-copyright" data-v-2fdd79b4></i> <a data-v-2fdd79b4><span data-v-2fdd79b4>jiangJade</span>
+            
+          <span data-v-2fdd79b4>2017 - </span>
+          2021
+        </a></span></div></div> <div data-v-5bf89314><main class="page"><div class="page-title" style="display:none;"><h1>优化react代码的6中建议</h1> <hr> <div data-v-1d3b109c><i class="iconfont reco-account" data-v-1d3b109c><span data-v-1d3b109c>jiangJade</span></i> <i class="iconfont reco-date" data-v-1d3b109c><span data-v-1d3b109c>2020-12-20</span></i> <!----> <i class="iconfont reco-tag tags" data-v-1d3b109c><span class="tag-item" data-v-1d3b109c>
+      react
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><h2 id="_1-为什么要提到优化react代码"><a href="#_1-为什么要提到优化react代码" class="header-anchor">#</a> 1 为什么要提到优化react代码?</h2> <p>因为接收了一个老项目 很多人都写过代码的那种项目，你们懂的其中的辛酸。</p> <h2 id="_2-优化的内容"><a href="#_2-优化的内容" class="header-anchor">#</a> 2 优化的内容</h2> <div class="language- extra-class"><pre><code>- 大量的 props
+- props 的不兼容性
+- props 复制为 state
+- 返回 JSX 的函数
+- state 的多个状态
+- useState 过多
+- 复杂的 useEffect
+</code></pre></div><div class="custom-block tip"><p>大量的 props</p></div> <p>如果需要把大量的 props 传递到一个组件中，那么很有可能 该组件可再进一步拆分。</p> <p>问题来了，“大量” 具体是多少呢？答案是 看情况。</p> <p>假设你正在开发 一个包含 20 个或更多 props 的组件时，你想再添加一些 props 完善其他功能，这时有两点可以参考 是否应拆分组件：
+该组件是否做了多件事？</p> <p>像函数一样，一个组件应该只做好一件事，所以考虑下 将组件拆分成多个小组件是否会更好。</p> <p>例如，该组件存在 props 的不兼容性 或 返回 JSX 的函数。</p> <h3 id="该组件是否可被合成？"><a href="#该组件是否可被合成？" class="header-anchor">#</a> 该组件是否可被合成？</h3> <p>开发中，组合是一种很好的模式但经常被忽视。</p> <p>如果你的组件中存在将不相干逻辑塞到一起的情况，是时候考虑使用组合了。</p> <p>假设我们有一个表单组件来处理某组织的用户信息:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;ApplicationForm
+  user={userData}
+  organization={organizationData}
+  categories={categoriesData}
+  locations={locationsData}
+  onSubmit={handleSubmit}
+  onCancel={handleCancel}
+  ...
+/&gt;
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>通过该组件的 props ，我们可看到它们都与组件提供的功能密切相关。</p> <p>该组件看起来并无大碍，但如果将其中的一些 props 分担到子组件，那么数据流就会更清晰。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;ApplicationForm onSubmit={handleSubmit} onCancel={handleCancel}&gt;
+  &lt;ApplicationUserForm user={userData} /&gt;
+  &lt;ApplicationOrganizationForm organization={organizationData} /&gt;
+  &lt;ApplicationCategoryForm categories={categoriesData} /&gt;
+  &lt;ApplicationLocationsForm locations={locationsData} /&gt;
+&lt;/ApplicationForm&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>现在，我们已经看到该表单组件只处理提交和取消动作，其他范围内的事情，都交给了对应的子组件。</p> <h3 id="是否传递了很多有关配置的-props"><a href="#是否传递了很多有关配置的-props" class="header-anchor">#</a> 是否传递了很多有关配置的 props</h3> <p>在某些情况下，将多个有关配置的 props 组合成一个 options 是个不错的实践。</p> <p>假设我们有一个可显示某种表格的组件：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;Grid
+  data={gridData}
+  pagination={false}
+  autoSize={true}
+  enableSort={true}
+  sortOrder=&quot;desc&quot;
+  disableSelection={true}
+  infiniteScroll={true}
+  ...
+/&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><p>我们可以很清楚地看出，该组件除了 data 外其余的 props 都是与配置有关的。</p> <p>如果将多个配置 props 合成为一个 options ，就可更好地控制组件的选项，规范性也得到提升。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const options = {
+  pagination: false,
+  autoSize: true,
+  enableSort: true,
+  sortOrder: 'desc',
+  disableSelection: true,
+  infiniteScroll: true,
+  ...
+}
+
+&lt;Grid
+  data={gridData}
+  options={options}
+/&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div><div class="custom-block tip"><p>props 的不兼容性</p></div> <p>避免组件之间传递不兼容的 props。</p> <p>假设你的组件库中有一个 <Input></Input> 组件，而该组件开始时仅用于处理文本，但过了一段时间后，你将它用于电话号码处理。</p> <p>你的实现可能如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Input({ value, isPhoneNumberInput, autoCapitalize }) {
+  if (autoCapitalize) capitalize(value)
+
+  return &lt;input value={value} type={isPhoneNumberInput ? 'tel' : 'text'} /&gt;
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>问题在于，isPhoneNumberInput 与 autoCapitalize 之间并不存在关联，将一个手机号首字母大写是没有任何意义的。</p> <p>在这种情况下，我们可以将其分割成多个小组件，来明确具体的职责，如果有共享逻辑，可以将其放到 hooks 中。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function TextInput({ value, autoCapitalize }) {
+  if (autoCapitalize) capitalize(value)
+  useSharedInputLogic()
+
+  return &lt;input value={value} type=&quot;text&quot; /&gt;
+}
+
+function PhoneNumberInput({ value }) {
+  useSharedInputLogic()
+
+  return &lt;input value={value} type=&quot;tel&quot; /&gt;
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>虽然上面例子有点勉强，可当发现组件的props存在不兼容性时，是时候考虑拆分组件了。</p> <div class="custom-block tip"><p>props 复制为 state</p></div> <p>如何更好地将 props 作为 state 的初始值。</p> <p>有如下组件：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Button({ text }) {
+  const [buttonText] = useState(text)
+
+  return &lt;button&gt;{buttonText}&lt;/button&gt;
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>该组件将 text 作为 useState 的初始值，可能会导致意想不到的行为。</p> <p>实际上该组件已经关掉了 props 的更新通知，如果 text 在上层被更新，它将仍呈现 接受到 text 的第一次值，这更容易使组件出错。</p> <p>一个更实际场景是，我们想基于 props 通过大量计算来得到新的 state。</p> <p>在下面的例子中，slowlyFormatText 函数用于格式化 text，注意 需要很长时间才能完成。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Button({ text }) {
+  const [formattedText] = useState(() =&gt; slowlyFormatText(text))
+
+  return &lt;button&gt;{formattedText}&lt;/button&gt;
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br></div></div><p>解决此问题 最好的方案是 使用 useMemo 代替 useState。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Button({ text }) {
+  const formattedText = useMemo(() =&gt; slowlyFormatText(text), [text])
+
+  return &lt;button&gt;{formattedText}&lt;/button&gt;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>现在 slowFormatFormat 仅在 text 更改时运行，并且没有阻断 上层组件更新。</p> <p>进一步阅读：Writing resilient components by Dan Abramov。</p> <div class="custom-block tip"><p>返回 JSX 的函数</p></div> <p>不要从组件内部的函数中返回 JSX。</p> <p>这种模式虽然很少出现，但我还是时不时碰到。</p> <p>仅举一个例子来说明:</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Component() {
+  const topSection = () =&gt; {
+    return (
+      &lt;header&gt;
+        &lt;h1&gt;Component header&lt;/h1&gt;
+      &lt;/header&gt;
+    )
+  }
+
+  const middleSection = () =&gt; {
+    return (
+      &lt;main&gt;
+        &lt;p&gt;Some text&lt;/p&gt;
+      &lt;/main&gt;
+    )
+  }
+
+  const bottomSection = () =&gt; {
+    return (
+      &lt;footer&gt;
+        &lt;p&gt;Some footer text&lt;/p&gt;
+      &lt;/footer&gt;
+    )
+  }
+
+  return (
+    &lt;div&gt;
+      {topSection()}
+      {middleSection()}
+      {bottomSection()}
+    &lt;/div&gt;
+  )
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><p>该例子虽然看起来没什么问题，但其实这会破坏代码的整体性，使维护变得困难。</p> <p>要么把函数返回的 JSX 直接内联到组件内，要么将其拆分成一个组件。</p> <p>有一点需要注意，如果你创建了一个新组件，不必将其移动到新文件中的。</p> <p>如果多个组件紧密耦合，将它们保存在同一个文件中是有意义的。</p> <div class="custom-block tip"><p>state 的多个状态</p></div> <p>避免使用多个布尔值来表示组件状态。</p> <p>当编写一个组件并多次迭代后，很容易出现这样一种情况，即内部有多个布尔值来表示 该组件处于哪种状态。</p> <p>比如下面的例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Component() {
+  const [isLoading, setIsLoading] = useState(false)
+  const [isFinished, setIsFinished] = useState(false)
+  const [hasError, setHasError] = useState(false)
+
+  const fetchSomething = () =&gt; {
+    setIsLoading(true)
+
+    fetch(url)
+      .then(() =&gt; {
+        setIsLoading(false)
+        setIsFinished(true)
+      })
+      .catch(() =&gt; {
+        setHasError(true)
+      })
+  }
+
+  if (isLoading) return &lt;Loader /&gt;
+  if (hasError) return &lt;Error /&gt;
+  if (isFinished) return &lt;Success /&gt;
+
+  return &lt;button onClick={fetchSomething} /&gt;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>当按钮被点击时，我们将 isLoading 设置为 true，并通过 fetch 执行网络请求。</p> <p>如果请求成功，我们将 isLoading 设置为 false，isFinished 设置为 true，如果有错误，将 hasError 设置为 true。</p> <p>虽然这在技术上是可行的，但很难推断出组件处于什么状态，而且不容易维护。</p> <p>并且有可能最终处于“不可能的状态”，比如我们不小心同时将 isLoading 和 isFinished 设置为 true。</p> <p>解决此问题一劳永逸的方案是 使用枚举来管理状态。</p> <p>在其他语言中，枚举是一种定义变量的方式，该变量只允许设置为预定义的常量值集合，虽然在JavaScript 中不存在枚举，但我们可以使用字符串作为枚举：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Component() {
+  const [state, setState] = useState('idle')
+
+  const fetchSomething = () =&gt; {
+    setState('loading')
+
+    fetch(url)
+      .then(() =&gt; {
+        setState('finished')
+      })
+      .catch(() =&gt; {
+        setState('error')
+      })
+  }
+
+  if (state === 'loading') return &lt;Loader /&gt;
+  if (state === 'error') return &lt;Error /&gt;
+  if (state === 'finished') return &lt;Success /&gt;
+
+  return &lt;button onClick={fetchSomething} /&gt;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div><p>通过这种方式，完全杜绝了出现 不可能状态的情况，并更利用扩展。</p> <p>如果你使用 TypeScript 开发的话，则可以从定义时就实现枚举：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const [state, setState] = useState&lt;'idle' | 'loading' | 'error' | 'finished'&gt;('idle')
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><div class="custom-block tip"><p>useState 过多</p></div> <p>避免在同一个组件中使用太多的 useState。</p> <p>一个包含许多 useState 的组件可能会做多件事情，可以考虑是否要拆分它。</p> <p>当然也存在一些复杂的场景，我们需要在组件中管理一些复杂的状态。</p> <p>下面是自动输入组件的例子：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function AutocompleteInput() {
+  const [isOpen, setIsOpen] = useState(false)
+  const [inputValue, setInputValue] = useState('')
+  const [items, setItems] = useState([])
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(-1)
+
+  const reset = () =&gt; {
+    setIsOpen(false)
+    setInputValue('')
+    setItems([])
+    setSelectedItem(null)
+    setActiveIndex(-1)
+  }
+
+  const selectItem = (item) =&gt; {
+    setIsOpen(false)
+    setInputValue(item.name)
+    setSelectedItem(item)
+  }
+
+  ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>我们有一个 reset 函数，可以重置所有状态，还有一个 selectItem 函数，可更新一些状态。</p> <p>这些函数都离不开 useState 定义的状态。如果功能继续迭代，那么函数就会越来越多，状态也会随之增加，数据流就会变得模糊不清。</p> <p>在这种情况下，使用 useReducer 来代替 过多的 useState 是一个不错的选择。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>const initialState = {
+  isOpen: false,
+  inputValue: &quot;&quot;,
+  items: [],
+  selectedItem: null,
+  activeIndex: -1
+}
+function reducer(state, action) {
+  switch (action.type) {
+    case &quot;reset&quot;:
+      return {
+        ...initialState
+      }
+    case &quot;selectItem&quot;:
+      return {
+        ...state,
+        isOpen: false,
+        inputValue: action.payload.name,
+        selectedItem: action.payload
+      }
+    default:
+      throw Error()
+  }
+}
+
+function AutocompleteInput() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  const reset = () =&gt; {
+    dispatch({ type: 'reset' })
+  }
+
+  const selectItem = (item) =&gt; {
+    dispatch({ type: 'selectItem', payload: item })
+  }
+
+  ...
+}
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><p>通过使用 reducer，我们封装了管理状态的逻辑，并将复杂的逻辑移出了组件，这使得组件更容易维护。</p> <p>进一步阅读：state reducer pattern by Kent C. Dodds。</p> <div class="custom-block tip"><p>复杂的 useEffect</p></div> <p>避免在 useEffect 中做太多事情，它们使代码易于出错，并且难以推理。</p> <p>下面的例子中 犯了一个很大的错误：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Post({ id, unlisted }) {
+  ...
+
+  useEffect(() =&gt; {
+    fetch(`/posts/${id}`).then(/* do something */)
+
+    setVisibility(unlisted)
+  }, [id, unlisted])
+
+  ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p>当 unlisted 改变时，即使 id 没有变，也会调用 fetch。</p> <p>正确的写法应该是 将多个依赖分离：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>function Post({ id, unlisted }) {
+  ...
+
+  useEffect(() =&gt; { // when id changes fetch the post
+    fetch(`/posts/${id}`).then(/* ... */)
+  }, [id])
+
+  useEffect(() =&gt; { // when unlisted changes update visibility
+    setVisibility(unlisted)
+  }, [unlisted])
+
+  ...
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><p>如有错误欢迎指出</p></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----></main> <!----> <div style="display:none;" data-v-5bf89314 data-v-5bf89314><div class="comments-wrapper" data-v-5bf89314><!----></div></div></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-566b5166 data-v-566b5166><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-566b5166><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-566b5166></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-566b5166></path></svg></div></div></div>
+    <script src="/jade-blog/assets/js/app.e9d780cf.js" defer></script><script src="/jade-blog/assets/js/3.8e18c45c.js" defer></script><script src="/jade-blog/assets/js/1.36d733a9.js" defer></script><script src="/jade-blog/assets/js/67.f982cb4f.js" defer></script>
+  </body>
+</html>
