@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>模块化演进历程 | jadeBlog</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    <link rel="icon" href="/jade-blog/favicon.ico">
+    <meta name="description" content="和你一起学习一起成长的经历">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/jade-blog/assets/css/0.styles.e38aed7d.css" as="style"><link rel="preload" href="/jade-blog/assets/js/app.4af78a4c.js" as="script"><link rel="preload" href="/jade-blog/assets/js/3.8e18c45c.js" as="script"><link rel="preload" href="/jade-blog/assets/js/1.36d733a9.js" as="script"><link rel="preload" href="/jade-blog/assets/js/56.b94de1b5.js" as="script"><link rel="prefetch" href="/jade-blog/assets/js/10.df0e166a.js"><link rel="prefetch" href="/jade-blog/assets/js/11.a7f1d6ca.js"><link rel="prefetch" href="/jade-blog/assets/js/12.2bf42616.js"><link rel="prefetch" href="/jade-blog/assets/js/13.63d51ab6.js"><link rel="prefetch" href="/jade-blog/assets/js/14.6385aa41.js"><link rel="prefetch" href="/jade-blog/assets/js/15.324e4df5.js"><link rel="prefetch" href="/jade-blog/assets/js/16.3d336936.js"><link rel="prefetch" href="/jade-blog/assets/js/17.ed85dd3f.js"><link rel="prefetch" href="/jade-blog/assets/js/18.53d17797.js"><link rel="prefetch" href="/jade-blog/assets/js/19.5758334d.js"><link rel="prefetch" href="/jade-blog/assets/js/20.b31e01aa.js"><link rel="prefetch" href="/jade-blog/assets/js/21.a7b26e98.js"><link rel="prefetch" href="/jade-blog/assets/js/22.3b8f5ae7.js"><link rel="prefetch" href="/jade-blog/assets/js/23.0761ed8a.js"><link rel="prefetch" href="/jade-blog/assets/js/24.9d497102.js"><link rel="prefetch" href="/jade-blog/assets/js/25.52c4b5ed.js"><link rel="prefetch" href="/jade-blog/assets/js/26.5cdbe5b5.js"><link rel="prefetch" href="/jade-blog/assets/js/27.ab712c50.js"><link rel="prefetch" href="/jade-blog/assets/js/28.6eff344f.js"><link rel="prefetch" href="/jade-blog/assets/js/29.d565588d.js"><link rel="prefetch" href="/jade-blog/assets/js/30.2cd7a771.js"><link rel="prefetch" href="/jade-blog/assets/js/31.5f80d9af.js"><link rel="prefetch" href="/jade-blog/assets/js/32.463aaeda.js"><link rel="prefetch" href="/jade-blog/assets/js/33.d482bf9e.js"><link rel="prefetch" href="/jade-blog/assets/js/34.21b15a54.js"><link rel="prefetch" href="/jade-blog/assets/js/35.75a26a74.js"><link rel="prefetch" href="/jade-blog/assets/js/36.4a9a841f.js"><link rel="prefetch" href="/jade-blog/assets/js/37.97cb37f7.js"><link rel="prefetch" href="/jade-blog/assets/js/38.5c62a448.js"><link rel="prefetch" href="/jade-blog/assets/js/39.a90d4090.js"><link rel="prefetch" href="/jade-blog/assets/js/4.119c2f89.js"><link rel="prefetch" href="/jade-blog/assets/js/40.b6638de2.js"><link rel="prefetch" href="/jade-blog/assets/js/41.ad04dd49.js"><link rel="prefetch" href="/jade-blog/assets/js/42.f5968f9a.js"><link rel="prefetch" href="/jade-blog/assets/js/43.d90fecb9.js"><link rel="prefetch" href="/jade-blog/assets/js/44.9c8732f5.js"><link rel="prefetch" href="/jade-blog/assets/js/45.600e98a6.js"><link rel="prefetch" href="/jade-blog/assets/js/46.9579dfdc.js"><link rel="prefetch" href="/jade-blog/assets/js/47.a0fff9c2.js"><link rel="prefetch" href="/jade-blog/assets/js/48.2ee51d63.js"><link rel="prefetch" href="/jade-blog/assets/js/49.340f108d.js"><link rel="prefetch" href="/jade-blog/assets/js/5.f0cebd99.js"><link rel="prefetch" href="/jade-blog/assets/js/50.377e2d0c.js"><link rel="prefetch" href="/jade-blog/assets/js/51.4c988deb.js"><link rel="prefetch" href="/jade-blog/assets/js/52.31bf8d50.js"><link rel="prefetch" href="/jade-blog/assets/js/53.c692a708.js"><link rel="prefetch" href="/jade-blog/assets/js/54.9907c05c.js"><link rel="prefetch" href="/jade-blog/assets/js/55.4ba4efae.js"><link rel="prefetch" href="/jade-blog/assets/js/57.56756445.js"><link rel="prefetch" href="/jade-blog/assets/js/58.03dff497.js"><link rel="prefetch" href="/jade-blog/assets/js/59.005dc952.js"><link rel="prefetch" href="/jade-blog/assets/js/6.240e9e1d.js"><link rel="prefetch" href="/jade-blog/assets/js/60.4315d78e.js"><link rel="prefetch" href="/jade-blog/assets/js/61.ea56970f.js"><link rel="prefetch" href="/jade-blog/assets/js/62.5498ea13.js"><link rel="prefetch" href="/jade-blog/assets/js/63.1d09b444.js"><link rel="prefetch" href="/jade-blog/assets/js/64.bf06225e.js"><link rel="prefetch" href="/jade-blog/assets/js/65.4f7105e3.js"><link rel="prefetch" href="/jade-blog/assets/js/66.9b59a6c7.js"><link rel="prefetch" href="/jade-blog/assets/js/67.cdb3debd.js"><link rel="prefetch" href="/jade-blog/assets/js/68.ddbe560d.js"><link rel="prefetch" href="/jade-blog/assets/js/69.236d5d23.js"><link rel="prefetch" href="/jade-blog/assets/js/7.ccde9f62.js"><link rel="prefetch" href="/jade-blog/assets/js/70.04fc3ea9.js"><link rel="prefetch" href="/jade-blog/assets/js/71.6e781ad9.js"><link rel="prefetch" href="/jade-blog/assets/js/72.ddbb603d.js"><link rel="prefetch" href="/jade-blog/assets/js/73.fc23ab18.js"><link rel="prefetch" href="/jade-blog/assets/js/74.3f8035bb.js"><link rel="prefetch" href="/jade-blog/assets/js/8.2bd55bad.js"><link rel="prefetch" href="/jade-blog/assets/js/9.1bdfd03f.js">
+    <link rel="stylesheet" href="/jade-blog/assets/css/0.styles.e38aed7d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container" data-v-5bf89314><div data-v-5bf89314><div id="loader-wrapper" class="loading-wrapper" data-v-c01c9394 data-v-5bf89314 data-v-5bf89314><div class="loader-main" data-v-c01c9394><div data-v-c01c9394></div><div data-v-c01c9394></div><div data-v-c01c9394></div><div data-v-c01c9394></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-2fdd79b4 data-v-5bf89314 data-v-5bf89314><h3 class="title" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4>jadeBlog</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><input type="password" value="" data-v-2fdd79b4> <span data-v-2fdd79b4>Konck! Knock!</span> <button data-v-2fdd79b4>OK</button></label> <div class="footer" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><span data-v-2fdd79b4><i class="iconfont reco-theme" data-v-2fdd79b4></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2fdd79b4>vuePress-theme-reco</a></span> <span data-v-2fdd79b4><i class="iconfont reco-copyright" data-v-2fdd79b4></i> <a data-v-2fdd79b4><span data-v-2fdd79b4>jiangJade</span>
+            
+          <span data-v-2fdd79b4>2017 - </span>
+          2021
+        </a></span></div></div> <div class="hide" data-v-5bf89314><header class="navbar" data-v-5bf89314><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/jade-blog/" class="home-link router-link-active"><img src="/jade-blog/logo.png" alt="jadeBlog" class="logo"> <span class="site-name">jadeBlog</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/jade-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jade-blog/categories/css/" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/flutter/" class="nav-link"><i class="iconfont undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/js/" class="nav-link"><i class="iconfont undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/typeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  typeScript
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/jade-blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/jade-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~reco_luan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  NPM
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/jiangJade" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/f2cb422d9345" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/luanhewei/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客圆
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://mp.weixin.qq.com/s/mXFqeUTegdvPliXknAAG_A" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  WeChat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-5bf89314></div> <aside class="sidebar" data-v-5bf89314><div class="personal-info-wrapper" data-v-77052908><img src="/jade-blog/avatar.jpg" alt="author-avatar" class="personal-img" data-v-77052908> <h3 class="name" data-v-77052908>
+    jiangJade
+  </h3> <div class="num" data-v-77052908><div data-v-77052908><h3 data-v-77052908>61</h3> <h6 data-v-77052908>文章</h6></div> <div data-v-77052908><h3 data-v-77052908>7</h3> <h6 data-v-77052908>标签</h6></div></div> <hr data-v-77052908></div> <nav class="nav-links"><div class="nav-item"><a href="/jade-blog/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/jade-blog/categories/css/" class="nav-link"><i class="iconfont undefined"></i>
+  css
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/flutter/" class="nav-link"><i class="iconfont undefined"></i>
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/js/" class="nav-link"><i class="iconfont undefined"></i>
+  js
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/react/" class="nav-link"><i class="iconfont undefined"></i>
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/typeScript/" class="nav-link"><i class="iconfont undefined"></i>
+  typeScript
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/vue/" class="nav-link"><i class="iconfont undefined"></i>
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/jade-blog/categories/webpack/" class="nav-link"><i class="iconfont undefined"></i>
+  webpack
+</a></li></ul></div></div><div class="nav-item"><a href="/jade-blog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/jade-blog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.npmjs.com/~reco_luan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-npm"></i>
+  NPM
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://github.com/jiangJade" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-github"></i>
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/f2cb422d9345" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-jianshu"></i>
+  简书
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://blog.csdn.net/recoluan" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-csdn"></i>
+  CSDN
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://www.cnblogs.com/luanhewei/" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bokeyuan"></i>
+  博客圆
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li><li class="dropdown-item"><!----> <a href="https://mp.weixin.qq.com/s/mXFqeUTegdvPliXknAAG_A" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-wechat"></i>
+  WeChat
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>模块化演进历程</span> <!----></p> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-2fdd79b4 data-v-5bf89314><h3 class="title" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4>模块化演进历程</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><input type="password" value="" data-v-2fdd79b4> <span data-v-2fdd79b4>Konck! Knock!</span> <button data-v-2fdd79b4>OK</button></label> <div class="footer" style="display:none;" data-v-2fdd79b4 data-v-2fdd79b4><span data-v-2fdd79b4><i class="iconfont reco-theme" data-v-2fdd79b4></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-2fdd79b4>vuePress-theme-reco</a></span> <span data-v-2fdd79b4><i class="iconfont reco-copyright" data-v-2fdd79b4></i> <a data-v-2fdd79b4><span data-v-2fdd79b4>jiangJade</span>
+            
+          <span data-v-2fdd79b4>2017 - </span>
+          2021
+        </a></span></div></div> <div data-v-5bf89314><main class="page"><div class="page-title" style="display:none;"><h1>模块化演进历程</h1> <hr> <div data-v-1d3b109c><i class="iconfont reco-account" data-v-1d3b109c><span data-v-1d3b109c>jiangJade</span></i> <i class="iconfont reco-date" data-v-1d3b109c><span data-v-1d3b109c>2020-02-21</span></i> <!----> <i class="iconfont reco-tag tags" data-v-1d3b109c><span class="tag-item" data-v-1d3b109c>
+      js
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><ol><li>文件划分的方式 污染全局作用域 命名冲突 无法管理模块依赖关系</li> <li>命名空间方式 在第一个阶段的基础上 将每个模块只暴露一个全局对象 所有的变量都挂载到这个全局对象上</li> <li>IIFE 立即执行函数 为模块提供私有空间</li></ol> <p>以上是早起在没有工具和规范的情况下对模块化的落地方式</p> <p>模块化规范的出现 模块化规范+模块加载器</p> <h3 id="_1-amd-异步加载"><a href="#_1-amd-异步加载" class="header-anchor">#</a> 1 AMD 异步加载</h3> <p>require.js 的实现</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>define([module-name?], [array-of-dependencies?],[module-factory-or-object]);
+　　/*其中：
+    　　module-name: 模块标识，可以省略。
+    　　array-of-dependencies: 所依赖的模块，可以省略。
+    　　module-factory-or-object: 模块的实现，或者一个JavaScript对象。
+    */
+
+/*从中可以看到，第一个参数和第二个参数都是可以省略的，第三个参数则是模块的具体实现本身。后面将介绍在不同的应用场景下，他们会使用不同的参数组合。*/
+
+define('alpha', ['require', 'exports', 'beta'], function (require, exports, beta) {
+    exports.verb = function() {
+    return beta.verb();
+
+    // 或者:
+
+    return require(“beta”).verb();
+
+    }
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><p>使用起来比较复杂,
+模块 js 文件请求频繁,
+先加载依赖</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    // require js 使用方法
+
+    define(['modle1.js', 'modle2.js'], function(modle1, modle2) {
+        // 执行其他逻辑
+    })
+
+
+    // 实现思路：建一个node节点, script标签
+    var node = document.createElement('script')
+    node.type = 'text/javascript'
+    node.src = 'modle1.js'
+
+    // modle1.js 加载完后onload的事件
+    node.addEventListener('load', function(evt) {
+        // 开始加载 modle2.js
+        var node2 = document.createElement('script')
+        node2.type = 'text/javascript'
+        node2.src = 'modle2.js'
+        // 插入 modle2.js script 节点
+        document.body.appendChild(node2)
+    })
+    // 将script节点插入dom中
+    document.body.appendChild(node);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h3 id="_2-cmd"><a href="#_2-cmd" class="header-anchor">#</a> 2. CMD</h3> <p>cmd: 按需加载，碰到 require('modle2.js)就立即执行 modle2.js</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>define(function() {
+    var modleContent = require('modle2.js');
+    console.log(modleContent)
+})
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h3 id="_3-commonjs-服务端规范"><a href="#_3-commonjs-服务端规范" class="header-anchor">#</a> 3. commonjs 服务端规范</h3> <ol><li>一个文件就是一个模块</li> <li>每个模块都有单独的作用域</li> <li>通过 module.exports 导出成员</li> <li>通过 require 函数载入模块</li> <li>commonjs 是以同步的方式加载模块 node 的执行机制是在启动时去加载模块 在执行阶段不需要加载模块</li> <li>CommonJS 模块输出的是一个值的拷贝，一旦输出一个值，模块内部的变化就影响不到这个值</li> <li>CommonJS 模块加载的顺序，按照其在代码中出现的顺序</li> <li>由于 CommonJS 是同步加载模块的，在服务器端，文件都是保存在硬盘上，所以同步加载没有问
+题，但是对于浏览器端，需要将文件从服务器端请求过来，那么同步加载就不适用了，所以，CommonJS 是不适用于浏览器端的。</li> <li>CommonJS 模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存</li></ol> <h3 id="_4-esmodules-浏览器模块化规范"><a href="#_4-esmodules-浏览器模块化规范" class="header-anchor">#</a> 4 ESmodules 浏览器模块化规范</h3> <div class="custom-block tip"><p>注意 import 不是解构导出对象</p></div> <ol><li>在语言层面实现了模块化 通过给 script 的标签 将 type 设置成 module 就可以使用这个规范了
+基本特性</li> <li>自动采用严格模式，忽略 use strict</li> <li>每个 ESM 模块都是单独的私有作用域</li> <li>ESM 是通过 CORS 去请求外部 JS 模块的</li> <li>ESM 中的 script 标签会延迟执行脚本</li> <li>ES6 模块是动态引用，引用类型属性被改变会相互影响</li> <li>export 导出 import 进行导入</li> <li>导出的并不是成员的值 而是内存地址 内部发生改变外部也会改变，外部导入的是只读成员不能修改</li> <li>ES module 中可以导入 CommonJS 模块</li> <li>CommonJS 中不能导入 ES module 模块</li> <li>CommonJS 始终只会导出一个默认成员</li></ol></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----></main> <!----> <div style="display:none;" data-v-5bf89314 data-v-5bf89314><div class="comments-wrapper" data-v-5bf89314><!----></div></div></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-566b5166 data-v-566b5166><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-566b5166><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-566b5166></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-566b5166></path></svg></div></div></div>
+    <script src="/jade-blog/assets/js/app.4af78a4c.js" defer></script><script src="/jade-blog/assets/js/3.8e18c45c.js" defer></script><script src="/jade-blog/assets/js/1.36d733a9.js" defer></script><script src="/jade-blog/assets/js/56.b94de1b5.js" defer></script>
+  </body>
+</html>
