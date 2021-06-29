@@ -1,21 +1,23 @@
 ---
-title: 实现一个bind
+title: 实现一个发布订阅
 date: 2018-7-15
 tags:
- - js
+  - js
 categories:
- - js
+  - js
 ---
 
 ## 2 EventHub(发布-订阅)
 
 实现思路
+
 ```
     使用一个对象作为缓存
     on负责把方法注册到缓存的EventName对应的数组
     emit负责遍历触发EventName底下的方法数组
     off找到方法的索引，并删除
 ```
+
 ```
     class EventHub {
         cache = {};
