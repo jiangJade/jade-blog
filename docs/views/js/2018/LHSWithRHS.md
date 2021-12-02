@@ -11,17 +11,17 @@ categories:
 
 作用域对变量的查询目的是变量赋值还是查询； LHS 也就是可以理解为变量在赋值操作符(=）的左侧；
 
-```
-    // js中声明一个变量
-    var num = 100;
+```js
+// js中声明一个变量
+var num = 100;
 ```
 
 RHS 也就是变量在赋值操作符右边,如下示例
 
-```
-function test(a,b) {
-    // 作用域对变量a,b的查找就是RHS, 查找变量b会报错，会抛出ReferenceError的错误
-    return a*2 + b;
+```js
+function test(a, b) {
+  // 作用域对变量a,b的查找就是RHS, 查找变量b会报错，会抛出ReferenceError的错误
+  return a * 2 + b;
 }
 test(2);
 ```
@@ -30,11 +30,11 @@ test(2);
 
 判单会输出什么？
 
-```
-(function(){
-a=100;
+```js
+(function() {
+  a = 100;
 })();
-console.log(a)
+console.log(a);
 ```
 
 ### 总结
