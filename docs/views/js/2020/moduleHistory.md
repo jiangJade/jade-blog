@@ -19,14 +19,13 @@ categories:
 
 require.js 的实现
 
-```
+```js
 define([module-name?], [array-of-dependencies?],[module-factory-or-object]);
 　　/*其中：
     　　module-name: 模块标识，可以省略。
     　　array-of-dependencies: 所依赖的模块，可以省略。
     　　module-factory-or-object: 模块的实现，或者一个JavaScript对象。
     */
-
 /*从中可以看到，第一个参数和第二个参数都是可以省略的，第三个参数则是模块的具体实现本身。后面将介绍在不同的应用场景下，他们会使用不同的参数组合。*/
 
 define('alpha', ['require', 'exports', 'beta'], function (require, exports, beta) {
@@ -45,41 +44,40 @@ define('alpha', ['require', 'exports', 'beta'], function (require, exports, beta
 模块 js 文件请求频繁,
 先加载依赖
 
-```
-    // require js 使用方法
+```js
+// require js 使用方法
 
-    define(['modle1.js', 'modle2.js'], function(modle1, modle2) {
-        // 执行其他逻辑
-    })
+define(['modle1.js', 'modle2.js'], function(modle1, modle2) {
+  // 执行其他逻辑
+});
 
+// 实现思路：建一个node节点, script标签
+var node = document.createElement('script');
+node.type = 'text/javascript';
+node.src = 'modle1.js';
 
-    // 实现思路：建一个node节点, script标签
-    var node = document.createElement('script')
-    node.type = 'text/javascript'
-    node.src = 'modle1.js'
-
-    // modle1.js 加载完后onload的事件
-    node.addEventListener('load', function(evt) {
-        // 开始加载 modle2.js
-        var node2 = document.createElement('script')
-        node2.type = 'text/javascript'
-        node2.src = 'modle2.js'
-        // 插入 modle2.js script 节点
-        document.body.appendChild(node2)
-    })
-    // 将script节点插入dom中
-    document.body.appendChild(node);
+// modle1.js 加载完后onload的事件
+node.addEventListener('load', function(evt) {
+  // 开始加载 modle2.js
+  var node2 = document.createElement('script');
+  node2.type = 'text/javascript';
+  node2.src = 'modle2.js';
+  // 插入 modle2.js script 节点
+  document.body.appendChild(node2);
+});
+// 将script节点插入dom中
+document.body.appendChild(node);
 ```
 
 ### 2. CMD
 
 cmd: 按需加载，碰到 require('modle2.js)就立即执行 modle2.js
 
-```
+```js
 define(function() {
-    var modleContent = require('modle2.js');
-    console.log(modleContent)
-})
+  var modleContent = require('modle2.js');
+  console.log(modleContent);
+});
 ```
 
 ### 3. commonjs 服务端规范
