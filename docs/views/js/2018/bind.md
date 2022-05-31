@@ -2,12 +2,26 @@
 title: 实现一个bind
 date: 2018-7-15
 tags:
- - js
+  - js
 categories:
- - js
+  - js
 ---
 
+## this 的指向
+
+在普通函数中，this 指向 window
+
+② 在构造函数中，this 指向创建的对象
+
+③ 在对象方法调用， 此时 this 指向 该方法所属的对象
+
+④ 在定时器函数中， this 指向 window
+
+⑤ 通过事件绑定的方法， 此时 this 指向 绑定事件的对象
+
 ```
+TypeError和ReferenceError的区别, ReferenceError同作用域判别失败相关, TypeError则代表作用域判别成功了, 但是对结果操作是非法或不合理的
+
 // 支持new, 例如  new (functionV.bind(this, args))
 function resetBind(targetThis) {
     var slice = Array.prototype.slice;

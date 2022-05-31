@@ -2,17 +2,19 @@
 title: diff算法单节点更新diff
 date: 2020-4-15
 tags:
- - react
+  - react
 categories:
- - react
+  - react
 ---
-[在这里可以查看到reconcileSingElement]: https://github.com/facebook/react/blob/1fb18e22ae66fdb1dc127347e169e73948778e5a/packages/react-reconciler/src/ReactChildFiber.new.js#L1141
 
-单节点的diff，以类型object为例，会进入reconcileSingElement。
+[在这里可以查看到reconcilesingelement]: https://github.com/facebook/react/blob/1fb18e22ae66fdb1dc127347e169e73948778e5a/packages/react-reconciler/src/ReactChildFiber.new.js#L1141
+
+单节点的 diff，以类型 object 为例，会进入 reconcileSingElement。
 
 :::tip
-[在这里可以查看到reconcileSingElement][在这里可以查看到reconcileSingElement]
+[在这里可以查看到 reconcileSingElement][在这里可以查看到reconcilesingelement]
 :::
+
 ```
  function reconcileChildFibers(returnFiber, currentFirstChild, newChild, lanes) {
    /*
@@ -22,7 +24,7 @@ categories:
     我们对上述模棱两可的情况一视同仁。
    */
 
-    var isUnkeyedTopLevelFragment = typeof newChild === 'object' && 
+    var isUnkeyedTopLevelFragment = typeof newChild === 'object' &&
         newChild !== null && newChild.type === REACT_FRAGMENT_TYPE && newChild.key === null;
 
     if (isUnkeyedTopLevelFragment) {
@@ -43,10 +45,12 @@ categories:
     }
 }
 ```
+
 该函数会做如下事情
 ![call](./images/diff.png)
 
-让我们看看第二步判断DOM节点是否可以复用是如何实现的。
+让我们看看第二步判断 DOM 节点是否可以复用是如何实现的。
+
 ```
 function reconcileSingleElement(
   returnFiber: Fiber,
@@ -56,7 +60,7 @@ function reconcileSingleElement(
 ): Fiber {
   const key = element.key;
   let child = currentFirstChild;
-  
+
   // 首先判断是否存在对应DOM节点
   while (child !== null) {
     // 上一次更新存在DOM节点，接下来判断是否可复用
@@ -68,14 +72,14 @@ function reconcileSingleElement(
 
       switch (child.tag) {
         // ...省略case
-        
+
         default: {
           if (child.elementType === element.type) {
             // type相同则表示可以复用
             // 返回复用的fiber
             return existing;
           }
-          
+
           // type不同则跳出循环
           break;
         }
@@ -94,14 +98,14 @@ function reconcileSingleElement(
   // 创建新Fiber，并返回 ...省略
 }
 ```
-从代码可以看出，React通过先判断key是否相同，如果key相同则判断type是否相同，只有都相同时一个DOM节点才能复用。
+
+从代码可以看出，React 通过先判断 key 是否相同，如果 key 相同则判断 type 是否相同，只有都相同时一个 DOM 节点才能复用。
 
 这里有个细节需要关注下：
 
-当child !== null且key相同且type不同时执行deleteRemainingChildren将child及其兄弟fiber都标记删除。
+当 child !== null 且 key 相同且 type 不同时执行 deleteRemainingChildren 将 child 及其兄弟 fiber 都标记删除。
 
-当child !== null且key不同时仅将child标记删除。
-
+当 child !== null 且 key 不同时仅将 child 标记删除。
 
 ## 巩固知识点
 
@@ -129,10 +133,24 @@ function reconcileSingleElement(
 <div key="xxx">xiao bei</div>
 ```
 
-练习1 chalid ！== null ，key默认为null,所以可以相同；type更新前为div 更新后为p所以不相同， 不能复用fiber 
+练习 1 chalid ！== null ，key 默认为 null,所以可以相同；type 更新前为 div 更新后为 p 所以不相同， 不能复用 fiber
 
-练习2 更新前后key不相同 所以不能复用。
+练习 2 更新前后 key 不相同 所以不能复用。
 
-练习3 key不相同所以不能服用
+练习 3 key 不相同所以不能服用
 
-练习4 key 相同 type也相同 可以复用
+练习 4 key 相同 type 也相同 可以复用
+
+实现步骤
+
+用 javascript 对象结构表示 dom 树的结构然后用这个树构建一个真正的 dom 树插到文档当中
+
+当状态变更的时候重新构造一棵新的对象树 然后用新的树和旧的树进行比较记录两棵树差异
+
+把 2 所记录的差异应用到步骤 1 所构建的真正的 dom 树上 视图就更新
+
+数据双向绑定
+
+Object.defineProperty 劫持给个属性的 setter，getter
+
+在数据变动时发布消息给订阅者，触发相应的监听回调

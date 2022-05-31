@@ -45,7 +45,7 @@ new new Foo().getName();
 
 ```js
 function User(name) {
-  var name = name; //私有属性
+  let name = name; //私有属性
   this.name = name; //公有属性
   function getName() {
     //私有方法
@@ -53,7 +53,7 @@ function User(name) {
   }
 }
 User.prototype.getName = function() {
-  //公有方法
+  // 公有方法
   return this.name;
 };
 User.name = 'Wscats'; //静态属性
